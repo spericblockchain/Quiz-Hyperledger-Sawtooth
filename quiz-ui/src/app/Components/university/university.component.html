@@ -1,0 +1,93 @@
+<div class="main-content-inner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <h4 *ngIf="professor.length > 0" class="header-title" style="position: absolute;">All Professors</h4>
+            <button type="button" class="btn btn-primary pull-right" data-toggle="modal"
+              data-target=".bd-example-modal-lg" style="margin-bottom: 20px;">Add Professor
+            </button>
+            <div *ngIf="professor.length > 0" class="single-table">
+              <div class="table-responsive">
+                <table class="table table-striped text-center">
+                  <thead class="text-uppercase">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Contact</th>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let prof of professor; index as i">
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{prof.name}}</td>
+                      <td>{{prof.mobile}}</td>
+                      <td>{{prof.subject}}</td>
+                      <td><i (click)="removeProfessor(prof.address)" class="ti-trash" style="color: red;"></i></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--ModalPopup-->
+<div class="modal fade bd-example-modal-lg">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Professor</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="name-text-input" class="col-form-label">Full Name</label>
+                <input required class="form-control" name="name" ngModel type="text" placeholder="Full Name"
+                  id="name-text-input">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="mobile-tel-input" class="col-form-label">Mobile</label>
+                <input required class="form-control" name="mobile" ngModel type="tel" placeholder="Phone Number"
+                  id="mobile-tel-input">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Subject</label>
+                <select required name="subject" ngModel class="custom-select" style="height: 45px;">
+                  <option *ngFor="let sub of subjectList" value="{{sub}}">{{sub}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <label for="example-tel-input" class="col-form-label">Public Key</label>
+                <input required class="form-control" name="publicKey" ngModel type="text" placeholder="Public Key"
+                  id="example-tel-input">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" value="submit" class="btn btn-primary">Add Professor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "/batches": {
+    "target": "http://localhost:8008",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/receipts": {
+    "target": "http://localhost:8008",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/state": {
+    "target": "http://localhost:8008",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/db": {
+    "target": "http://localhost:3002",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

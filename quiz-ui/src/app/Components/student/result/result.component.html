@@ -1,0 +1,31 @@
+<div class="main-content-inner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="header-title stu">Score Board</h4>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group">
+                  <select required class="custom-select" name="batch" style="height: 45px;" (change)="onChange($event)">
+                    <option selected="selected" value="-1">Select Quiz</option>
+                    <option *ngFor="let quiz of playedQuizDta" value="{{quiz.quiz}}">{{quiz.name}}</option>
+                  </select>
+                </div>
+              </div><br>
+              <div *ngIf="SelectedQuiz !== ''" class="col-md-12 finalResult">
+                <h5>Quiz : {{SelectedQuiz[0].name}}</h5>
+                <h5>Mark : {{SelectedQuiz[0].mark}}</h5>
+                <h6>Quiz Address : {{SelectedQuiz[0].quiz}}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

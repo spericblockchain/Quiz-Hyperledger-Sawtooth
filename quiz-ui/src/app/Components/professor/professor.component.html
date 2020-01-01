@@ -1,0 +1,62 @@
+<div class="main-content-inner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="header-title stu">Questions</h4>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group">
+                  <select required class="custom-select" name="batch" style="height: 45px;" (change)="onChange($event)">
+                    <option selected="selected" value="-1">Select Quiz</option>
+                    <option *ngFor="let quiz of quizData" value="{{quiz.id}}">{{quiz.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="qus" *ngFor="let quiz of currentQuiz let i = index">
+              <div class="form-group">
+                <div class="question-answer">{{i+1}}. {{quiz.question}} </div>
+              </div>
+              <div class="flex-container">
+                <div [ngClass]="(quiz.answer1==quiz.bestAnswer)?'correctAns':'wrongAns'">
+                  {{quiz.answer1}}
+                </div>
+
+                <div [ngClass]="(quiz.answer2==quiz.bestAnswer)?'correctAns':'wrongAns'">
+                  {{quiz.answer2}}
+                </div>
+
+                <div [ngClass]="(quiz.answer3==quiz.bestAnswer)?'correctAns':'wrongAns'">
+                  {{quiz.answer3}}
+                </div>
+
+                <div [ngClass]="(quiz.answer4==quiz.bestAnswer)?'correctAns':'wrongAns'">
+                  {{quiz.answer4}}
+                </div>
+              </div>
+              <!-- <mat-radio-group disabled class="example-radio-group" #radioGroup="matRadioGroup">
+                <mat-radio-button [checked]="quiz.answer1 === quiz.bestAnswer" class="example-radio-button" value="1">
+                  {{quiz.answer1}}
+                </mat-radio-button>
+                <mat-radio-button [checked]="quiz.answer2 === quiz.bestAnswer" class="example-radio-button" value="2">
+                  {{quiz.answer2}}
+                </mat-radio-button>
+                <mat-radio-button [checked]="quiz.answer3 === quiz.bestAnswer" class="example-radio-button" value="3">
+                  {{quiz.answer3}}
+                </mat-radio-button>
+                <mat-radio-button [checked]="quiz.answer4 === quiz.bestAnswer" class="example-radio-button" value="4">
+                  {{quiz.answer4}}
+                </mat-radio-button>
+              </mat-radio-group> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

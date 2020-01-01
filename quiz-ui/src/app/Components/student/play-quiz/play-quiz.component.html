@@ -1,0 +1,45 @@
+<div class="main-content-inner">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="header-title stu">Questions</h4>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group">
+                  <select required class="custom-select" name="batch" style="height: 45px;" (change)="onChange($event)">
+                    <option selected="selected" value="-1">Select Quiz</option>
+                    <option *ngFor="let quiz of quizData" value="{{quiz.id}}">{{quiz.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <form>
+              <button type="submit" (click)="submitQuiz()" class="btn btn-primary pull-right playSubmit">Submit
+              </button>
+              <div class="qus" *ngFor="let quiz of currentQuiz[0] let i = index">
+                <div class="form-group">
+                  <div class="question-answer">{{quiz.question}} </div>
+                </div>
+                <mat-radio-group class="example-radio-group" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="selection[i]" #radioGroup="matRadioGroup">
+                  <mat-radio-button class="example-radio-button" value="{{quiz.answer1}}">{{quiz.answer1}}
+                  </mat-radio-button>
+                  <mat-radio-button class="example-radio-button" value="{{quiz.answer2}}">{{quiz.answer2}}
+                  </mat-radio-button>
+                  <mat-radio-button class="example-radio-button" value="{{quiz.answer3}}">{{quiz.answer3}}
+                  </mat-radio-button>
+                  <mat-radio-button class="example-radio-button" value="{{quiz.answer4}}">{{quiz.answer4}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

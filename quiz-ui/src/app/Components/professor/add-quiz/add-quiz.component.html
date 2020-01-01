@@ -1,0 +1,88 @@
+<div class="main-content-inner">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="header-title">Questions</h4>
+            <br>
+            <br>
+            <form [formGroup]="quizForm">
+              <div class="form-group">
+                <input required formControlName="quizName" class="form-control" type="text" placeholder="Quiz Name">
+              </div>
+              <div formArrayName="questions">
+                <div *ngFor="let question of questionForm.controls; let i = index" [formGroupName]="i">
+                  <p class="num">{{i+1}}. </p>
+                  <div class="form-group">
+                    <input required formControlName="question" class="form-control" type="text"
+                      placeholder="Enter Your Question">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input required formControlName="answer1" class="form-control" type="text"
+                          placeholder="Enter Your Answer">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input required formControlName="answer2" class="form-control" type="text"
+                          placeholder="Enter Your Answer">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input required formControlName="answer3" class="form-control" type="text"
+                          placeholder="Enter Your Answer">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input required formControlName="answer4" class="form-control" type="text"
+                          placeholder="Enter Your Answer">
+                      </div>
+                    </div>
+                    <div class="col-md-4 added">
+                      <select required formControlName="bestAnswer" class="custom-select" style="height: 45px;">
+                        <option selected="selected">Correct Answer</option>
+                        <option *ngIf="question.value.answer1" value="{{question.value.answer1}}">
+                          {{question.value.answer1}}
+                        </option>
+                        <option *ngIf="question.value.answer2" value="{{question.value.answer2}}">
+                          {{question.value.answer2}}
+                        </option>
+                        <option *ngIf="question.value.answer3" value="{{question.value.answer3}}">
+                          {{question.value.answer3}}
+                        </option>
+                        <option *ngIf="question.value.answer3" value="{{question.value.answer4}}">
+                          {{question.value.answer4}}
+                        </option>
+                      </select>
+                    </div>
+                    <div *ngIf="i > 0" (click)="deleteQuiz(i)" class="col-md-2 added"><i class="fa fa-remove"
+                        aria-hidden="true"></i></div>
+                    <div *ngIf="questionForm.controls.length === i + 1" (click)="addQuiz()" class="col-md-2 added"><i
+                        class="fa fa-plus" aria-hidden="true"></i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="example-text-input" class="col-form-label">Batch</label>
+                  <select formControlName="batch" required class="custom-select" name="batch" style="height: 45px;">
+                    <option *ngFor="let batch of BatchList" value="{{batch}}">{{batch}}</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" (click)="submitQuiz()" class="btn btn-primary pull-right"
+                style="margin-bottom: 20px;">Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
