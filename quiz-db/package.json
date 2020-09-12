@@ -14,7 +14,7 @@
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"mongoose": "^5.8.0",
-		"node-fetch": "^2.3.0",
+		"node-fetch": "^2.6.1",
 		"sawtooth-sdk": "^1.0.5",
 		"text-encoding": "^0.7.0"
 	}
