@@ -27,7 +27,7 @@
     "rxjs": "~6.4.0",
     "sawtooth-sdk": "^1.0.5",
     "text-encoding": "^0.7.0",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
